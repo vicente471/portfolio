@@ -52,28 +52,28 @@ const Portfolio = () => {
     {
       title: "Gestión Maquinaria GETRAM",
       category: "Mobile",
-      image: "/images/getram-mobile.png", 
+      image: "images/getram-mobile.png", 
       desc: "App móvil para la entrega y recepción de equipos de minería. Incluye listas de chequeo digitales, firma electrónica y reportabilidad diaria del estado de los equipos.",
       stack: ["Flutter", "PostgreSQL", "PDF Gen"]
     },
     {
       title: "Dashboard GPS Flota",
       category: "Web / Desktop", 
-      image: "/images/dashboard-gps.png",
+      image: "images/dashboard-gps.png",
       desc: "Panel de control web para monitoreo en tiempo real de camiones. Visualización de rutas, alertas georreferenciadas y análisis de movimiento de flota.",
       stack: ["React", "Node.js", "Maps API"]
     },
     {
       title: "Suite de Gestión & ERP Defontana",
       category: "Web / Desktop",
-      image: "/images/erp-backend.png",
+      image: "images/erp-backend.png",
       desc: "Aplicación integral de escritorio (Electron) y Web para la automatización contable. Sincroniza inventario, facturación y clientes bidireccionalmente con el ERP corporativo Defontana.",
       stack: ["Electron", "React", "Node.js", "REST API"]
     },
     {
       title: "Backend Central de Datos Unificado",
       category: "Backend",
-      image: "/images/backend.png", 
+      image: "images/backend.png", 
       desc: "Infraestructura centralizada que orquesta todas las bases de datos de la empresa. Incluye un motor ETL automatizado para extraer datos críticos de planillas Excel y consolidarlos en una base de datos maestra en VPS.",
       stack: ["Node.js", "PostgreSQL", "VPS Linux", "Excel ETL"]
     }
@@ -143,7 +143,7 @@ const Portfolio = () => {
           <div className="flex gap-4 pt-4">
             <a href="#projects" className={styles.buttonPrimary}>Ver Proyectos</a>
             <a 
-              href="/cv-vicente.pdf" 
+              href="CV_VicenteSantos.pdf" 
               download="CV_Vicente_Santos.pdf" 
               className={styles.buttonOutline}
             >
@@ -164,7 +164,7 @@ const Portfolio = () => {
         <div className="flex-1 flex justify-center relative">
             <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-b from-cyan-500/20 to-transparent flex items-center justify-center border border-cyan-500/30 relative overflow-hidden">
              <img 
-                src="/images/perfil.png" 
+                src="images/perfil.png" 
                 alt="Vicente Santos" 
                 className="object-cover w-full h-full opacity-90 hover:scale-105 transition-transform duration-500"
                 onError={(e) => {e.target.src = "/api/placeholder/400/400"}} 
