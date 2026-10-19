@@ -19,6 +19,7 @@ const Portfolio = () => {
       company: "Proyecto FIU - USACH",
       period: "Abril 2026 - Actualidad",
       points: [
+        "Diseño y despliegue en producción de un asistente conversacional basado en arquitectura RAG distribuida (CEDETEC), integrando microservicios desacoplados de ingesta, recuperación semántica y generación con LLMs locales para el análisis de bases de datos y convocatorias ANID.",
         "Diseño e implementación de flujos de trabajo para la generación de datos sintéticos, incluyendo imágenes y videos orientados a la simulación de escenarios críticos en entornos de cuidado, reduciendo la dependencia de datos sensibles reales.",
         "Desarrollo de pipelines en Python utilizando modelos multimodales para la inspección, clasificación y filtrado automatizado de contenido sintético, evaluando características visuales, contexto espacial y calidad de generación.",
         "Optimización de procesos de inferencia de modelos de Inteligencia Artificial para hardware de recursos limitados, aplicando técnicas de gestión de memoria y optimización de ejecución.",
@@ -41,6 +42,21 @@ const Portfolio = () => {
   ];
 
   const mainProjects = [
+    {
+      title: "Asistente Conversacional IA I+D (RAG) - CEDETEC",
+      category: "AI · RAG & Microservicios",
+      image: "images/rag-cedetec.png",
+      desc: "Plataforma conversacional en producción basada en una arquitectura RAG distribuida para la consulta inteligente de bases de datos, resultados e instrumentos de financiamiento de ANID.",
+      problem: "Alta dispersión y complejidad documental en las bases concursales e instrumentos de financiamiento de I+D (como proyectos Fondecyt), dificultando la consulta ágil de requisitos de postulación, elegibilidad y patrocinio.",
+      built: [
+        "Arquitectura RAG distribuida en microservicios desacoplados (Ingesta, Recuperación y Generación) con FastAPI y Docker",
+        "Integración de modelos de lenguaje y embeddings locales (Gemma / EmbeddingGemma vía Ollama) con búsqueda vectorial en ChromaDB",
+        "Interfaz web interactiva con trazabilidad de extractos de contexto recuperados y explorador de Base de Datos ANID",
+        "Evaluación rigurosa del pipeline alcanzando métricas de 0.99 en Context Recall y Faithfulness sobre infraestructura GPU local"
+      ],
+      stack: ["Python", "FastAPI", "RAG", "Ollama", "ChromaDB", "LangChain", "Docker"],
+      link: "https://iac-id.cedetec.cl/"
+    },
     {
       title: "Análisis Multimodal & Generación Sintética - Proyecto FIU",
       category: "AI & Edge Computing",
@@ -104,7 +120,7 @@ const Portfolio = () => {
     {
       title: "AI / Machine Learning",
       icon: <Database className="text-blue-600" size={24} />,
-      items: ["Python", "PyTorch", "IA Generativa", "Modelos Multimodales", "Edge AI"]
+      items: ["Python", "PyTorch", "Arquitecturas RAG", "LLMs & Embeddings (Ollama)", "LangChain", "ChromaDB", "IA Generativa", "Modelos Multimodales", "Edge AI"]
     },
     {
       title: "Software Engineering",
@@ -114,12 +130,12 @@ const Portfolio = () => {
     {
       title: "Backend & APIs",
       icon: <Server className="text-blue-600" size={24} />,
-      items: ["Node.js", "Express", "FastAPI", "REST APIs"]
+      items: ["Node.js", "Express", "FastAPI", "REST APIs", "Microservicios"]
     },
     {
       title: "Infraestructura & Data",
       icon: <Container className="text-blue-600" size={24} />,
-      items: ["SQL", "Data Science", "ETL", "Docker", "Linux", "Nginx", "VPS", "PM2"]
+      items: ["SQL", "Bases de Datos Vectoriales", "Data Science", "ETL", "Docker", "Linux", "Nginx", "VPS", "PM2"]
     }
   ];
 
@@ -181,15 +197,15 @@ const Portfolio = () => {
           <div className="flex flex-wrap items-center gap-2 md:gap-3 text-slate-600 font-semibold text-sm md:text-lg mt-2 mb-6">
             <span>Inteligencia Artificial</span>
             <span className="text-blue-400">•</span>
-            <span>Software</span>
+            <span>Arquitecturas RAG</span>
             <span className="text-blue-400">•</span>
-            <span>Scientific Computing</span>
+            <span>Software & Scientific Computing</span>
           </div>
-          
+
           <p className="max-w-xl text-lg leading-relaxed text-slate-600">
-            Desarrollo soluciones end-to-end integrando investigación en inteligencia artificial, generación de datos sintéticos, modelos multimodales y plataformas de software escalables.
+            Desarrollo soluciones end-to-end integrando investigación en inteligencia artificial, sistemas RAG distribuidos, generación de datos sintéticos, modelos multimodales y plataformas de software escalables.
           </p>
-          
+
           <div className="flex flex-wrap gap-4 pt-6">
             <a href="#proyectos" className={styles.buttonPrimary}>Ver proyectos</a>
             <a href="CV_VicenteSantos.pdf" download="CV_Vicente_Santos.pdf" className={styles.buttonOutline}>
@@ -200,7 +216,7 @@ const Portfolio = () => {
             </a>
           </div>
         </div>
-        
+
         {/* Avatar */}
         <div className="w-48 h-48 md:w-80 md:h-80 relative flex-shrink-0 mb-8 md:mb-0">
           <div className="absolute inset-0 border-2 border-blue-600 rounded-lg translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6 -z-10 transition-transform duration-300 hover:translate-x-2 hover:translate-y-2"></div>
@@ -223,7 +239,7 @@ const Portfolio = () => {
         <div className="space-y-16 md:space-y-24">
           {mainProjects.map((project, idx) => (
             <div key={idx} className={`flex flex-col ${idx % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-12 items-center`}>
-              
+
               {/* Imagen del proyecto */}
               <div 
                 className="w-full md:w-7/12 relative group cursor-zoom-in rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm"
@@ -241,15 +257,15 @@ const Portfolio = () => {
               <div className={`w-full md:w-5/12 flex flex-col ${idx % 2 !== 0 ? 'md:items-start' : 'md:items-end'} z-20`}>
                 <h3 className="text-blue-600 font-mono text-xs font-bold mb-2 uppercase">{project.category}</h3>
                 <h4 className={`text-2xl md:text-3xl font-extrabold text-slate-800 mb-4 ${idx % 2 !== 0 ? 'text-left' : 'md:text-right text-left'}`}>{project.title}</h4>
-                
+
                 <div className="bg-white p-6 rounded-lg border border-slate-200 text-slate-600 text-sm leading-relaxed mb-6 shadow-md w-full">
                   <p className="mb-4">{project.desc}</p>
-                  
+
                   <div className="mb-4">
                     <strong className="text-slate-800 block mb-1 font-semibold">Problema:</strong>
                     <p className="text-slate-600">{project.problem}</p>
                   </div>
-                  
+
                   <div>
                     <strong className="text-slate-800 block mb-2 font-semibold">Qué construí:</strong>
                     <ul className="list-disc list-outside ml-4 space-y-1 text-slate-600 marker:text-blue-500">
@@ -266,7 +282,17 @@ const Portfolio = () => {
                   ))}
                 </div>
 
-                <div className={`flex gap-4 items-center mt-auto ${idx % 2 !== 0 ? 'justify-start' : 'md:justify-end justify-start'}`}>
+                <div className={`flex flex-wrap gap-4 items-center mt-auto ${idx % 2 !== 0 ? 'justify-start' : 'md:justify-end justify-start'}`}>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition-all shadow-sm hover:shadow group"
+                    >
+                      <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/> Ver en producción
+                    </a>
+                  )}
                   {project.doc && (
                     <a href={project.doc} download target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group">
                       <Download size={16} className="group-hover:-translate-y-0.5 transition-transform"/> Documentación
@@ -290,14 +316,14 @@ const Portfolio = () => {
           {experience.map((exp, idx) => (
             <div key={idx} className="relative group pl-6 md:pl-8 border-l-2 border-slate-200 hover:border-blue-400 transition-colors duration-300">
               <div className="absolute -left-[7px] top-2 h-3 w-3 rounded-full bg-slate-50 border-2 border-blue-500 group-hover:scale-125 transition-transform duration-300"></div>
-              
+
               <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
                 <h3 className="text-xl font-extrabold text-slate-800">{exp.role}</h3>
                 <span className="font-mono text-sm font-bold text-blue-600 mt-1 md:mt-0">{exp.period}</span>
               </div>
-              
+
               <h4 className="text-md text-slate-600 font-bold mb-4">{exp.company}</h4>
-              
+
               <ul className="list-disc list-outside ml-4 space-y-2 marker:text-blue-500 text-slate-600 text-sm md:text-base font-medium">
                 {exp.points.map((point, i) => (
                   <li key={i} className="pl-1">{point}</li>
@@ -341,13 +367,13 @@ const Portfolio = () => {
 
         <div className="max-w-4xl text-slate-600 text-lg leading-relaxed space-y-4 font-medium bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
           <p>
-            Analista en Computación Científica titulado en la Universidad de Santiago de Chile (USACH), con experiencia en Inteligencia Artificial, desarrollo de software y procesamiento de datos. He trabajado en generación de datos sintéticos, Vision-Language Models, optimización de inferencia y arquitecturas Edge AI, además de desarrollar sistemas empresariales, APIs, dashboards y aplicaciones multiplataforma.
+            Analista en Computación Científica titulado en la Universidad de Santiago de Chile (USACH), con experiencia en Inteligencia Artificial, desarrollo de software y procesamiento de datos. He trabajado en el diseño de arquitecturas RAG en producción, generación de datos sintéticos, Vision-Language Models, optimización de inferencia y Edge AI, además de desarrollar sistemas empresariales, APIs, dashboards y aplicaciones multiplataforma.
           </p>
           <p>
-            Actualmente trabajo como AI Engineer (I+D) en un proyecto de investigación aplicado, desarrollando soluciones relacionadas con IA generativa, generación de datos sintéticos, modelos multimodales y Edge AI. Mi trabajo incluye el diseño de pipelines para generación y evaluación de contenido sintético, automatización de procesos y desarrollo de soluciones de inteligencia artificial para entornos con recursos computacionales limitados.
+            Actualmente me desempeño como AI Engineer (I+D) en proyectos de investigación aplicada, desarrollando soluciones con IA generativa, búsqueda semántica sobre bases de datos vectoriales, modelos multimodales y despliegue local de LLMs. Mi trabajo abarca desde la orquestación de microservicios para recuperación de información (RAG) hasta pipelines de generación y evaluación automatizada de contenido sintético en entornos con recursos computacionales limitados.
           </p>
           <p>
-            Mi experiencia combina investigación aplicada y desarrollo de soluciones end-to-end, integrando Python, Machine Learning, backend, bases de datos, infraestructura y herramientas de IA generativa.
+            Mi experiencia combina investigación aplicada y desarrollo de soluciones end-to-end, integrando Python, Machine Learning, backend, bases de datos, infraestructura containerizada y herramientas de IA generativa.
           </p>
         </div>
       </section>
@@ -357,7 +383,7 @@ const Portfolio = () => {
         <div className="max-w-2xl mx-auto space-y-6">
             <h2 className="text-3xl font-extrabold text-slate-800 tracking-tight">Construyamos algo juntos.</h2>
             <p className="text-slate-600 font-medium">Siempre abierto a discutir sobre IA, arquitectura de software o nuevos desafíos técnicos.</p>
-            
+
             <div className="pt-4">
               <a href="mailto:vsantosvaras@gmail.com" className={styles.buttonOutline + " inline-flex !px-8 font-bold"}>
                   ¡Hablemos!
@@ -379,7 +405,7 @@ const Portfolio = () => {
             </div>
         </div>
       </footer>
-      
+
     </div>
   );
 };
