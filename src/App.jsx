@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, ExternalLink, Download, Layout, Server, Database, Container, X, Phone } from 'lucide-react';
+import { Github, Linkedin, Instagram, ExternalLink, Download, Layout, Server, Database, Container, X, Phone } from 'lucide-react';
 
 const Portfolio = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -211,8 +211,32 @@ const Portfolio = () => {
             <a href="CV_VicenteSantos.pdf" download="CV_Vicente_Santos.pdf" className={styles.buttonOutline}>
               <Download size={18}/> Descargar CV
             </a>
-            <a href="https://github.com/vicente471" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-slate-200 rounded hover:border-blue-300 hover:text-blue-600 text-slate-600 transition-all flex items-center justify-center shadow-sm">
-               <Github size={20} />
+            <a 
+              href="https://github.com/vicente471" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="GitHub"
+              className="p-3 bg-white border border-slate-200 rounded hover:border-blue-300 hover:text-blue-600 text-slate-600 transition-all flex items-center justify-center shadow-sm"
+            >
+              <Github size={20} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/vicentesantos1" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="LinkedIn"
+              className="p-3 bg-white border border-slate-200 rounded hover:border-blue-300 hover:text-blue-600 text-slate-600 transition-all flex items-center justify-center shadow-sm"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a 
+              href="https://www.instagram.com/vicho.nt/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Instagram"
+              className="p-3 bg-white border border-slate-200 rounded hover:border-blue-300 hover:text-blue-600 text-slate-600 transition-all flex items-center justify-center shadow-sm"
+            >
+              <Instagram size={20} />
             </a>
           </div>
         </div>
@@ -390,9 +414,15 @@ const Portfolio = () => {
               </a>
             </div>
 
-            <div className="flex justify-center gap-8 pt-8 text-sm font-bold text-slate-500">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8 pt-8 text-sm font-bold text-slate-500">
                 <a href="https://github.com/vicente471" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-600 transition-colors">
                     <Github size={18}/> <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/vicentesantos1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-600 transition-colors">
+                    <Linkedin size={18}/> <span>LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/vicho.nt/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-600 transition-colors">
+                    <Instagram size={18}/> <span>@vicho.nt</span>
                 </a>
                 <div className="flex items-center gap-2">
                     <Phone size={18}/> <span>+56 9 7378 0501</span>
